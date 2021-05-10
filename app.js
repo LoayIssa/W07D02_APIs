@@ -30,10 +30,23 @@ app.put("/update/todo/:name",(req,res)=>{
 
  }
  res.status(404);
- res.json("no funde");
+ res.json("not found");
 
 
-}) 
+});
+app.delete("/delete/todo/:name" , (req ,res)=>{
+  const name =req.params.name
+  for(i=0; i<todos.length ; i++){
+    if(todos[i].todo===name){
+      todos[i].todo=req.body.todo
+      res.status(201)
+      res.json(splice(i,1)[0])
+      return
+    }
+  }
+  res.status(404);
+ res.json("not found");
+}); 
 
 
 
