@@ -15,6 +15,9 @@ app.get("/users", (req, res) => {
   res.status(200);
   res.json(users);
 });
+app.get("/first-user",(req,res)=>{
+    res.json(users[0])
+})
 
 app.get("/user/:name", (req, res) => {
   const user = req.params.name
