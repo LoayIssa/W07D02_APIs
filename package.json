@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "dev":"nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "createfile": "touch app.js",
+    "dev1": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,6 @@
   },
   "homepage": "https://github.com/LoayIssa/W07D02_APIs#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "file:node_modules/express"
   }
 }
