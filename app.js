@@ -48,6 +48,34 @@ app.delete("/delete/todo/:name" , (req ,res)=>{
  res.json("not found");
 }); 
 
+app.put("/complete/todo/:name", (req, res) => {
+  const name = req.params.name;
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].todo === name) {
+      todos[i].isCompleted = true;
+      res.status(200);
+      res.json(todos);
+      return;
+    }
+  }
+  res.status(404);
+  res.json("not found");
+});
+
+
+app.get(("/completed/todos"),(req,res)=> {
+    const found = todos.filter((element,index) =>{
+        return element.isCompleted === true
+    })
+
+    if (found.length!=0){
+        res.status(200);
+        res.json(found);
+    }else
+    res.status(404);
+    res.json("not found");
+});
+
 
 
 app.listen(port, () => {
